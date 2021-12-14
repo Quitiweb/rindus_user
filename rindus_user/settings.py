@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
 
     # apps
-    'rindus_user',
+    'user_app',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
