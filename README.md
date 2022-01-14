@@ -87,8 +87,8 @@ To manage administrators permissions, we will create a group for them.
  - Click on Login With Google
  - Click on Continue button
  - Select a Google account to Sign in
-   - you whould see a Welcome page with your Google account name
- - Click on Go to admin
+   - you would see a Welcome page with your Google account name
+ - Click on Go user crud page
  - Create, Read, Update or Delete users
 
 ## PENDING
