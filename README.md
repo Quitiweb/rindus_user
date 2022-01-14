@@ -54,8 +54,8 @@ $ psql
  - Then, under Social Applications, click +Add and fill in the details as follows:
    - Provider: Google
    - Name: Rindus User
-   - Client id: 1060656612712-dv18blompiaokonnok23dl4o4me8q5vo.apps.googleusercontent.com
-   - Secret key: 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
+   - Client id: XXXX
+   - Secret key: XXXX
    - *Key: (keep it empty)*
    - Sites: 127.0.0.1:8000 (under chosen sites)
    - SAVE
