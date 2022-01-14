@@ -1,6 +1,6 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
-from django.views.generic.edit import UpdateView
+from django.views.generic.edit import DeleteView, UpdateView
 from django.views.generic.list import ListView
 
 from user_app.forms import CustomUserForm
@@ -17,6 +17,12 @@ class BasicCrudUpdate(UpdateView):
 class BasicCrudView(ListView):
     model = UserCrud
     template_name = 'view-crud.html'
+
+
+class BasicCrudDelete(DeleteView):
+    model = UserCrud
+    template_name = 'delete-crud.html'
+    success_url = "/thanks/"
 
 
 def create_crud_view(request):

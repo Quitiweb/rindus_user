@@ -14,6 +14,7 @@
       <li>
         {{ u.first_name }} {{ u.last_name }} - <b>IBAN:</b> {{ u.iban }}
         - <a href="{% url 'update-crud' u.id %}">update</a>
+        - <a href="{% url 'delete-crud' u.id %}">delete</a>
       </li>
 
     {% endfor %}
