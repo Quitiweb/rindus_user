@@ -13,6 +13,10 @@ class BasicCrudUpdate(UpdateView):
     template_name = 'update-crud.html'
     success_url = "/thanks/"
 
+    def get_form(self, form_class=None):
+        form_class = CustomUserForm
+        return super().get_form(form_class)
+
 
 class BasicCrudView(ListView):
     model = UserCrud
