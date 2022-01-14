@@ -1,22 +1,29 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
+from django.views.generic.edit import UpdateView
+from django.views.generic.list import ListView
 
-from user_app.forms import CustomUserCreationForm
+from user_app.forms import CustomUserForm
 from user_app.models import UserCrud
 
 
-def basic_crud_view(request):
-    template = loader.get_template('basic-crud.html')
+class BasicCrudUpdate(UpdateView):
+    model = UserCrud
+    fields = ['first_name', 'last_name', 'iban']
+    template_name = 'update-crud.html'
+    success_url = "/thanks/"
 
-    return HttpResponse(template.render(
-        {'crud': UserCrud.objects.all()}, request))
+
+class BasicCrudView(ListView):
+    model = UserCrud
+    template_name = 'view-crud.html'
 
 
 def create_crud_view(request):
     template = loader.get_template('create-crud.html')
 
     if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST)
+        form = CustomUserForm(request.POST)
         if form.is_valid():
             first_name = form.cleaned_data['first_name']
             last_name = form.cleaned_data['last_name']
@@ -32,6 +39,6 @@ def create_crud_view(request):
             return HttpResponseRedirect('/thanks/')
 
     else:
-        form = CustomUserCreationForm()
+        form = CustomUserForm()
 
     return HttpResponse(template.render({'form': form}, request))

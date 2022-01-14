@@ -6,13 +6,13 @@
     {% if user.is_authenticated %}
 
     <h4>You are logged in as {{ user.username }}</h4>
-    <h2>Your users</h2>
-    <ol>
-      {% for c in crud %}
-      <li>{{ c.first_name }} {{ c.last_name }} - <b>IBAN: </b>{{ c.iban }}</li>
-      {% endfor %}
-    </ol>
-    <p><a href="/create-crud">Add a new user</a></p>
+    <h2>Update your user</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" name="update">
+    </form>
+
     {% else %}
 
     <a href="{% provider_login_url 'google' %}">Login With Google</a>

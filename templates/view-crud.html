@@ -1,0 +1,31 @@
+{% load socialaccount %}
+<html>
+  <body>
+    <h1>Rindus User CRUD</h1>
+
+    {% if user.is_authenticated %}
+
+    <h4>You are logged in as {{ user.username }}</h4>
+    <h2>Your users</h2>
+
+    <ul>
+    {% for u in object_list %}
+
+      <li>
+        {{ u.first_name }} {{ u.last_name }} - <b>IBAN:</b> {{ u.iban }}
+        - <a href="{% url 'update-crud' u.id %}">update</a>
+      </li>
+
+    {% endfor %}
+    </ul>
+
+    <p><a href="{% url 'create-crud' %}">Add a new user</a></p>
+
+    {% else %}
+
+    <a href="{% provider_login_url 'google' %}">Login With Google</a>
+
+    {% endif %}
+
+  </body>
+</html>
