@@ -8,6 +8,13 @@ from user_app.models import UserCrud
 def basic_crud_view(request):
     template = loader.get_template('basic-crud.html')
 
+    return HttpResponse(template.render(
+        {'crud': UserCrud.objects.all()}, request))
+
+
+def create_crud_view(request):
+    template = loader.get_template('create-crud.html')
+
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
