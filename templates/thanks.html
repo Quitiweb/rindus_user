@@ -5,8 +5,8 @@
 
     {% if user.is_authenticated %}
 
-    <p>Welcome, You are logged in as {{ user.username }}</p>
-    <p>Go to <a href="/basic-crud">user crud page</a></p>
+    <h2>Thank you {{ user.username }} !</h2>
+    <p>Go back to <a href="/basic-crud">user crud page</a></p>
     <p>Or go to <a href="/admin">admin</a> area</p>
 
     {% else %}

@@ -1,0 +1,24 @@
+{% load socialaccount %}
+<html>
+  <body>
+    <h1>Rindus User CRUD</h1>
+
+    {% if user.is_authenticated %}
+
+    <h4>You are logged in as {{ user.username }}</h4>
+    <p>Your users:</p>
+    <p>USERS HERE</p>
+    <form action="/basic-crud/" method="post">
+      {% csrf_token %}
+      {{ form }}
+      <input type="submit" value="submit">
+    </form>
+
+    {% else %}
+
+    <a href="{% provider_login_url 'google' %}">Login With Google</a>
+
+    {% endif %}
+
+  </body>
+</html>

@@ -95,7 +95,7 @@ To manage administrators permissions, we will create a group for them.
 
 1. IBAN data validation
 2. Test environment using docker-compose to run the test task and doc
-3. Write documentation on how to use your implementation
+3. Documentation maintenance
 
 #### EXTRAS
  - postgreSQL running on a docker container

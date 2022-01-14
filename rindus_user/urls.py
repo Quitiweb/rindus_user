@@ -17,11 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth.views import LogoutView
 
-from rindus_user.views import HomeView
+from rindus_user.views import HomeView, ThanksView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView.as_view(), name='home'),
+    path('thanks/', ThanksView.as_view(), name='thanks'),
     path('accounts/', include('allauth.urls')),
     path('logout', LogoutView.as_view()),
+    path('', include('user_app.urls')),
 ]
